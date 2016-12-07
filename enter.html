@@ -1,24 +1,17 @@
-# auto-ajax-table
-通过配置自动生成搜索表单和数据表格
-
-
-### 表单配置
-
-#### html
-
-```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>初始化</title>
     <link href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="./auto_ajax_table.css" />
-    <div id="ajt"></div>
-    
-    <!-- 依赖jquery -->
-    <script src="./jquery.js"></script>
-    <script src="./auto_ajax_table.js"></script>
-```
-
-#### javascript
-
-```javascript
+</head>
+<body>
+<div id="ajt"></div>
+<script src="./jquery.js"></script>
+<script src="./auto_ajax_table.js"></script>
+</body>
+<script>
     var options = [
         { value: 1, text: '男' }, {value: 0, text: '女'}
     ]
@@ -35,6 +28,5 @@
             console.log(data);
         }
     });
-```
-
-#### 效果
+</script>
+</html>

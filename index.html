@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web网页 Demo</title>
+    <link href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="./searchForm.css" />
+</head>
+<body>
+    <div id="erpSearchForm"></div>
+    <div class="pagination"></div>
+</body>
+
+<script src="./jquery.js"></script>
+<script src="./searchForm.js"></script>
+<script type="text/javascript">
+    var options = [
+        { value: 1, text: '男' }, {value: 0, text: '女'}
+    ]
+    $("#erpSearchForm").searchForm({
+        action: "/admin/admin-product",
+        method: "post",
+        inputGroup: [
+            { label: '商品名', name: 'name', type: 'text'},
+            { label: '时间', name: 'number', type: 'time'},
+            { label: '条码', name: 'card', type: 'select', options: options },
+        ],
+        paginationSelector: '.pagination',  // 加载分页到当前元素
+        thTitle: ["图片", "商品名", "条码", "型号", "规格", "销售价", "原价", "厂牌", "尾货", "热卖", "新品上市", "折扣"],
+        tdKey: [
+            { key: "image", type: 'html', template: '<img src="/upload/{{ image }}" width="50" height="50"/>' },
+            { key: "name", type: "string" },
+            { key: "card" },
+            { key: "model" },
+            { key: "spec" },
+            { key: "price" },
+            { key: "marketPrice"},
+            { key: "factory" },
+            { key: "hot", type: 'cond', cond: { 1: '开启', 0: '关闭' } },
+            { key: "new" }, {key: "sale"}
+        ],
+        success: function(data) {
+            // 自己处理结果
+            console.log(data);
+        }
+    });
+</script>
+</html>

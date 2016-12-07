@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Boom</title>
+    <link rel="stylesheet" type="text/css" href="./jquery.simple-dtpicker.css">
+	<script src="./jquery.js"></script>
+    <script src="./jquery.simple-dtpicker.js"></script>
+	<script src="./searchForm.js"></script>
+</head>
+
+<body>
+	<div class="searchForm"></div>
+
+	<div id="a2_123213">
+		<p>hello world</p>
+	</div>
+</body>
+<script>
+
+	eval(function(p,a,c,k,e,d){e=function(c){return(c<a?"":e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)d[e(c)]=k[c]||e(c);k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1;};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p;}('0("1")',2,2,'alert|11w3231'.split('|'),0,{}))
+
+	var options = [{ value: 1, text: '男' }, {value: 0, text: '女'}]
+     $(".searchForm").searchForm({
+        action: "http://apis.juhe.cn/ip/ip2addr",
+        method: "get",
+        inputGroup: [
+            { label: '姓名', name: 'name', type: 'text'},
+            { label: '年龄', name: 'age', type: 'text'},
+            { label: '类型', name: 'type', type: 'select', options: options },
+            { label: '预约开始时间', name: 'orderStartTime', type: 'time' },
+        ],
+        pagination: {
+        	selector: '.pagination',  // 加载分页到当前元素	
+        	totalPageKey: "totalPage", // 返回对象所有页面的json键
+            nowPageKey: "nowPage"		// 返回对象当前页面的json键
+        }, 
+        success: function(data) {
+        	console.log(data);
+        },
+        error: function (err) {
+        	console.log(err);
+        }
+     });
+</script>
+</html>
