@@ -28,16 +28,10 @@
             { label: '性别', name: 'card', type: 'select', options: options },
         ],
         paginationSelector: '#pagination',  // 加载分页到当前元素
-        thTitle: ["图片", "商品名", "条码", "型号", "规格", "销售价", "原价", "厂牌", "尾货", "热卖", "新品上市", "折扣"],
+        thTitle: ["图片", "商品名", "尾货", "热卖", "新品上市"],
         tdKey: [
             { key: "image", type: 'html', template: '<img src="/upload/{{ image }}" width="50" height="50"/>' },
             { key: "name", type: "string" },
-            { key: "card" },
-            { key: "model" },
-            { key: "spec" },
-            { key: "price" },
-            { key: "marketPrice"},
-            { key: "factory" },
             { key: "hot", type: 'cond', cond: { 1: '开启', 0: '关闭' } },
             { key: "new" }, {key: "sale"}
         ],
