@@ -87,3 +87,5 @@
 ```
 	
 #### 效果
+
+![Alt text](https://github.com/KELEN/auto-ajax-table/blob/master/img/xiaoguo.png?raw=true "效果图")
