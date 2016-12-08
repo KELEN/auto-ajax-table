@@ -8,12 +8,12 @@
 
 ```html
     <link href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet">
-    <link rel="stylesheet" href="./auto_ajax_table.css" />
+    <link rel="stylesheet" href="./searchForm.css" />
     <div id="ajt"></div>
     <div id="pagination"></div>
     <!-- 依赖jquery -->
     <script src="./jquery.js"></script>
-    <script src="./auto_ajax_table.js"></script>
+    <script src="./searchForm.js"></script>
 ```
 
 #### javascript
