@@ -41,6 +41,12 @@
             { key: "hot", type: 'cond', cond: { 1: '开启', 0: '关闭' } },
             { key: "new" }, {key: "sale"}
         ],
+        // 对应的数据键
+        dataKey: {
+            nowPage: "GetNowPage",
+            totalPage: "GetPageCount",
+            data: "GetDataSource"
+        },
         success: function(data) {
             // 自己处理结果
             console.log(data);
@@ -61,8 +67,29 @@
 | paginationSelector | 字符串 | 显示分页元素 |
 | thTitle | 数组 | 表格对应的标题 |
 | tdKey | 对象数组 | 生成的数据对应的键 | 
+| dataKey | 对象 | 返回的数据获取分页，总页码，分页数据对应的json键 |
 | success | 函数 | 成功返回的数据 |
 | error | 函数 | 失败返回的结果 |
 
+#### 返回的数据格式
 
+```json
+{
+    "GetPageSize": 8,
+    "GetNowPage": 1,
+    "GetXinxiCount": 18,
+    "GetPageCount": 3,
+    "GetDataSource": [
+        {
+            "_id": "577a180203ae9e6419e031de",
+            "name": "灯管",
+            "image": "back_0.1544786507729441.jpg",
+            "hot": "0",
+            "new": "0"
+        }
+    ]
+}
+
+```
+	
 #### 效果

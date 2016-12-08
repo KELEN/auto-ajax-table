@@ -55,15 +55,18 @@
             method: 'get',          // 默认’get‘方法
             inputGroup: [],          // input组,
             defaultInputType: "text",
-            searchCarDefault: {},    // 选择的车型,
             data: {},
             success: $.noop,
             error: $.noop,
             complete: $.noop,
             paginationSelector: '',  //  显示分页的元素
-            searchCarLevel: 4,      // 默认全部显示, 车牌, 车系, 排量, 年款
             thTitle: [],
-            tdKey: []
+            tdKey: [],
+            dataKey: {
+                nowPage: "",
+                totalPage: "",
+                data: "",
+            }
         };
 
         var opts = $.extend(defaultOptions, options);
@@ -71,6 +74,8 @@
 
         instance.id = Math.random().toString().replace('.', '_');
         instance.tbodyId = instance.id + "tbody";
+
+        var dataKey = opts.dataKey;
 
         var form = document.createElement("form");      // 表单
         form.id = "searchForm" + instance.id;
@@ -138,10 +143,6 @@
             //     <label for="">标题</label>
             //     <input class="form-control" name="title" type="text" value="">
             // </div>
-            // 搜索车型
-            if (opts.searchCar) {
-                generateCarSelect();
-            }
             if (inputGroup && inputGroup.length) {
                 for (var i = 0; i < inputGroup.length; i++) {
                     var inputItem = inputGroup[i];
@@ -214,7 +215,7 @@
                     dealData(data);
 
                     if (opts.paginationSelector) {
-                        $(opts.paginationSelector).html(loadPageAjax(data.GetNowPage, data.GetPageCount));  // 添加分页
+                        $(opts.paginationSelector).html(loadPageAjax(data[dataKey.nowPage], data[dataKey.totalPage]));  // 添加分页
                     }
                 },
                 error: function(data) {
@@ -228,7 +229,8 @@
 
         // 处理返回的数据
         function dealData(data) {
-            var list = data.GetDataSource;
+            console.log(data);
+            var list = data[dataKey.data];
             var tbody = document.getElementById(instance.tbodyId);
             tbody.innerHTML = ''
             if (tbody) {
