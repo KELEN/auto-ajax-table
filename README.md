@@ -5,7 +5,7 @@
 
 例如返回的数据类型是这样:
 
-``` json
+``` javascript
 var data = {
     items: [
         { label: '标签1', name: 'name1', time: new Date() },
@@ -78,8 +78,7 @@ $("#searchForm").searchForm({
 ```
 
 #### 效果
-
-
+![alt 效果](https://raw.githubusercontent.com/KELEN/auto-ajax-table/master/img/effect.jpg)
 
 #### 说明
 
