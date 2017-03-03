@@ -18,7 +18,7 @@ var data = {
 ```
 
 效果是这样的:
-
+![alt 效果](https://raw.githubusercontent.com/KELEN/auto-ajax-table/master/img/effect.jpg)
 
 ### 表单配置
 
